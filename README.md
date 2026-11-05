@@ -23,3 +23,6 @@ References: https://pmc.ncbi.nlm.nih.gov/articles/PMC7142196/ and https://pmc.nc
 ## Tilda later
 
 Use a T123 HTML block containing an iframe with the deployed HTTPS URL, width 100%, height around 1600px, title="Тренажёр VExUS". Also provide a link to open the trainer in its own tab. Height must be adjusted after testing the actual Tilda layout. No Tilda changes are required for standalone use.
+
+## 0.2 Portal update
+Curved shared vessel geometry, cached grayscale liver background, textured signed color Doppler and arterial response, spectral intensity rendering, draggable calipers, envelope/extrema/cycle checks (PF tolerance 5 percentage points). Run `node portal-tests.cjs`. Synthetic educational model, not clinically validated. Hepatic and renal anatomy remain schematic.
