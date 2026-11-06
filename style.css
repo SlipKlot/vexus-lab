@@ -2,3 +2,8 @@
 
 /* Compact workstation for the portal study. */
 .intro{padding:22px 0 20px}.intro h1{font-size:46px;margin:5px 0}.intro p{font-size:13px;margin:4px 0}.casepanel{padding:14px 18px}.casepanel .facts{padding-top:10px}header{padding-top:16px;padding-bottom:16px}.measurement{min-height:78px}
+
+.session-note{font-size:12px;max-width:850px;margin:0 0 14px} @media(pointer:coarse){.toolbar button,.toolbar select{min-height:44px}.controls input{min-height:30px}}
+
+.sample-control{display:block;padding:10px 16px;font-size:12px;color:var(--muted)}.sample-control span{font-size:10px}.concept-task{margin-top:20px;padding-top:15px;border-top:1px solid var(--line)}.concept-task a{color:var(--cyan);font-size:11px}[hidden]{display:none!important}
+.rights-notice{font-size:12px;line-height:1.7;color:#9aafb5;padding:0 0 28px}.rights-notice a{text-decoration:underline}

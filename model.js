@@ -17,7 +17,8 @@ function distance(p,l){const [x,y,a,b]=l,dx=a-x,dy=b-y,t=Math.max(0,Math.min(1,(
 function hit(v,p){return vessels[v].lines.findIndex(l=>distance(p,l)<l[4])}
 function phase(c,t){let z=t*c.hr/60;if(c.id==='af')z+=.09*Math.sin(t*4.1);return ((z%1)+1)%1}
 function gaussian(x,m,s){return Math.exp(-.5*((x-m)/s)**2)}
-function velocity(c,v,t){const x=phase(c,t);if(v===1)return 24*(1-c.p/2+c.p/2*Math.cos(2*Math.PI*x));if(v===0){if(c.h===3)return -12-1.5*Math.cos(x*6.28);const s=c.h===2?20:c.h===1?-13:-32;return s*gaussian(x,.27,.09)-22*gaussian(x,.64,.09)+(c.id==='af'?0:8*gaussian(x,.9,.045));}if(c.r===0)return -12-1.5*Math.cos(x*6.28);return -(c.r===1?15*gaussian(x,.27,.07):0)-20*gaussian(x,.65,.08)}
-function fresh(){return {gate:{x:180,y:170},box:{x:350,y:245},read:false,measures:[],correct:false,attempt:null,feedback:''}}
-const api={cases,vessels,category,expected,grade,pf,distance,hit,phase,velocity,fresh};if(typeof module!=='undefined')module.exports=api;root.Vexus=api;
+function velocity(c,v,t){const x=phase(c,t);if(v===1)return 24*(1-c.p/2+c.p/2*Math.cos(2*Math.PI*x));if(v===0){if(c.h===3)return -12-1.5*Math.cos(x*6.28);const s=c.h===2?20:c.h===1?-13:-32;return s*gaussian(x,.27,.09)-22*gaussian(x,.64,.09)+5*gaussian(x,.49,.035)+(c.id==='af'?0:8*gaussian(x,.95,.025));}if(c.r===0)return -12-1.5*Math.cos(x*6.28);return -(c.r===1&&x>.16&&x<.4?15*Math.sin(Math.PI*(x-.16)/.24):0)-(x>.53&&x<.83?20*Math.sin(Math.PI*(x-.53)/.3):0)}
+function artery(c,t){const x=phase(c,t);return 10+25*gaussian(x,.25,.055)+4*gaussian(x,.4,.1)}
+function fresh(){return {gate:{x:180,y:170},box:{x:350,y:245},read:false,measures:[],correct:false,attempt:null,feedback:'',concept:false,conceptFeedback:''}}
+const api={artery,cases,vessels,category,expected,grade,pf,distance,hit,phase,velocity,fresh};if(typeof module!=='undefined')module.exports=api;root.Vexus=api;
 })(typeof window==='undefined'?globalThis:window);
